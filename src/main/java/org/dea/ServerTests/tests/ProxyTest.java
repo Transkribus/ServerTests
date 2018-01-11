@@ -1,4 +1,4 @@
-package org.dea.ProxyTester;
+package org.dea.ServerTests.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,18 +14,11 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Utility for testing Java proxy settings on UIBK servers
- * 
- * @author philip
- *
- */
-public class App {
-	private static final Logger logger = LoggerFactory.getLogger(App.class);
-	
+public class ProxyTest {
+	private static final Logger logger = LoggerFactory.getLogger(ProxyTest.class);
 	private static final boolean USE_LOGGER = true;
-	
-	public static void main(String[] args) {
+
+	public void doTest(URL url) {
 		log("http.proxyHost = " + System.getProperty("http.proxyHost"));
 		log("http.proxyPort = " + System.getProperty("http.proxyPort"));
 		log("http.nonProxyHosts = " + System.getProperty("http.nonProxyHosts"));
@@ -33,17 +26,17 @@ public class App {
 		log("https.proxyPort = " + System.getProperty("https.proxyPort"));
 		
 		String urlStr = "https://archive.thulb.uni-jena.de/ufb/servlets/MCRDFGServlet/MAX/ufb_derivate_00003259/Chart-B-00024_000.tif";
-		if(args != null && args.length > 0) {
-			urlStr = args[0];
+		if(url == null) {
+			try {
+				url = new URL(urlStr);
+			} catch (MalformedURLException e) {
+				log("ERROR: Given URL is not valid: " + urlStr, e);
+				return;
+			}
 		}
 		log("==================================================================");
-		URL url;
-		try {
-			url = new URL(urlStr);
-		} catch (MalformedURLException e) {
-			log("ERROR: Given URL is not valid: " + urlStr, e);
-			return;
-		}
+		
+		
 		log("Connectivity test with URL: " + urlStr);
 		File out = new File("/tmp/proxyTesterTmpFile");
 		out.deleteOnExit();

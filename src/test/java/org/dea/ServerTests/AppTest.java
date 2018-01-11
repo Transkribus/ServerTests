@@ -1,4 +1,4 @@
-package org.dea.ProxyTester;
+package org.dea.ServerTests;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

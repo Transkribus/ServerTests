@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.dea</groupId>
-	<artifactId>ProxyTester</artifactId>
+	<artifactId>ServerTests</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>ProxyTester</name>
+	<name>ServerTests</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -87,7 +87,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>${dependency-dir}/</classpathPrefix>
-							<mainClass>org.dea.ProxyTester.App</mainClass>
+							<mainClass>org.dea.ServerTests.App</mainClass>
 						</manifest>
 						<manifestEntries>
 							<Class-Path>./</Class-Path>
@@ -119,8 +119,8 @@
 					<finalName>${appName}-${project.version}</finalName>
 					<archive>
 						<manifest>
-							<mainClass>org.dea.ProxyTester.App</mainClass>
-							<packageName>org.dea.ProxyTester</packageName>
+							<mainClass>org.dea.ServerTests.App</mainClass>
+							<packageName>org.dea.ServerTests</packageName>
 							<addClasspath>true</addClasspath>
 							<!-- impl and spec entries are needed by image-io, otherwise "vendor 
 								== null" exception occurs -->
@@ -158,7 +158,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<appName>proxyTester</appName>
+				<appName>serverTests</appName>
 			</properties>
 		</profile>
 	</profiles>
