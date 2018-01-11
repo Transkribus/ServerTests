@@ -1,3 +1,3 @@
-# ProxyTester
+# ServerTests
 
-Small utility to check Java proxy configuration.
+Utilities to check server configuration.
